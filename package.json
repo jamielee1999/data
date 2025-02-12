@@ -1,0 +1,31 @@
+{
+  "name": "onedata-ui",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "lint": "eslint ./src",
+    "lint:fix": "eslint ./src --fix"
+  },
+  "dependencies": {
+    "@astrojs/react": "^4.1.6",
+    "@astrojs/tailwind": "^5.1.5",
+    "@types/react": "^19.0.7",
+    "@types/react-dom": "^19.0.3",
+    "astro": "^5.1.8",
+    "eslint-plugin-astro": "^1.3.1",
+    "eslint-plugin-tailwindcss": "^3.18.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tailwindcss": "^3.4.17"
+  },
+  "devDependencies": {
+    "@eslint-react/eslint-plugin": "^1.24.1",
+    "@ito-frontend/eslint-config": "^2.0.6",
+    "eslint-plugin-react-hooks": "^5.1.0",
+    "eslint-plugin-react-refresh": "^0.4.18"
+  }
+}
