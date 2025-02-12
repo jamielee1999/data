@@ -1,0 +1,15 @@
+---
+import DataBaseCountNumber from '@/components/DataBaseCountNumber';
+
+type Props = {
+  title: string;
+  count: number;
+};
+
+const { title, count } = Astro.props;
+---
+
+<div class="md:space-y-5">
+  <DataBaseCountNumber value={count} client:only="true" />
+  <p class="text-2xl font-bold md:text-8">{title}</p>
+</div>

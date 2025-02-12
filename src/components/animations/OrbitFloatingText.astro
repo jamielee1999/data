@@ -1,0 +1,113 @@
+<div
+  class="absolute left-1/2 top-1/2 z-10 flex
+    -translate-x-1/2 -translate-y-1/2 items-center justify-center
+    rounded-full xl:size-[360px]"
+>
+  <p
+    data-aos="zoom-in"
+    data-aos-offset="-100"
+    class="text-center text-xl font-bold text-cyan-100
+  md:text-3xl lg:text-4xl xl:text-14"
+  >
+    400萬+<br />不重複使用者
+  </p>
+</div>
+<div
+  class:list={[
+    'absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full',
+    'size-30 md:size-60 xl:size-[360px]',
+    'bg-gradient-to-r from-cyan-300 to-purple-400 mix-blend-lighten opacity-30',
+  ]}
+>
+</div>
+<div
+  class:list={[
+    'absolute right-[7%] top-[19%] -translate-y-1/2',
+    'animate-float-1',
+  ]}
+>
+  <p class="text-center md:text-lg xl:text-8">
+    FB、LINE
+    <br />
+    團購整單平台
+  </p>
+</div>
+<div
+  class:list={[
+    'absolute left-[53%] top-[21%] -translate-x-1/2',
+    'animate-float-2',
+  ]}
+>
+  <p class="text-center md:text-lg xl:text-8">記帳 APP</p>
+</div>
+<div
+  class:list={['absolute right-0 top-1/2 -translate-y-1/2', 'animate-float-3']}
+>
+  <p class="text-center md:text-lg xl:text-8">
+    全台最多
+    <br />
+    發票載具APP
+  </p>
+</div>
+<div
+  class:list={[
+    'absolute bottom-[30%] left-[15%] -translate-x-1/2',
+    'animate-float-4',
+  ]}
+>
+  <p class="text-center md:text-lg xl:text-8">電商平台</p>
+</div>
+<div
+  class:list={[
+    'absolute left-[4.5%] top-[45%] -translate-y-1/2',
+    'animate-float-5',
+  ]}
+>
+  <p class="md:text-lg xl:text-10">
+    全台最大
+    <br />
+    比價平台
+  </p>
+</div>
+
+<style lang="scss">
+  @use 'sass:list';
+
+  // 基礎動畫配置
+  $positions: (
+    1: (0: (0, 10%), 33: (12px, -56%), 66: (20px, -14%), 100: (0, 10%)),
+    2: (0: (0, -50%), 33: (-10%, -86%), 66: (-25%, -14%), 100: (0, -50%)),
+    3: (0: (0, -50%), 25: (-20px, -5%),  50: (-12px, -20%), 75: (-6px, -2%), 100: (0, -50%)),
+    4: (0: (0, -50%), 50: (-66%, 36px), 100: (0, -50%)),
+    5: (0: (0, -50%), 33: (12px, -14%), 66: (-12px, -86%), 100: (0, -50%))
+  );
+
+  // generate keyframes
+  @mixin float-animation($index, $keyframes) {
+    @keyframes float-#{$index} {
+      @each $percent, $pos in $keyframes {
+        #{$percent}% {
+          transform: translate(list.nth($pos, 1), list.nth($pos, 2));
+        }
+      }
+    }
+  }
+
+  // generate animation
+  @each $index, $keyframes in $positions {
+    @include float-animation($index, $keyframes);
+
+    .animate-float-#{$index} {
+      animation: float-#{$index} 12s ease-in-out infinite;
+    }
+  }
+
+  // responsive animation duration
+  @media (min-width: 768px) {
+    .animate-float-1 { animation-duration: 4.5s; }
+    .animate-float-2 { animation-duration: 5s; }
+    .animate-float-3 { animation-duration: 3.5s; }
+    .animate-float-4 { animation-duration: 4.8s; }
+    .animate-float-5 { animation-duration: 5.2s; }
+  }
+</style>

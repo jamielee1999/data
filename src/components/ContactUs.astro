@@ -1,0 +1,28 @@
+---
+import BlockTitle from '@/components/ui/BlockTitle.astro';
+
+const subtitle = `
+  <p>對 Webb 零售智能平台的應用感興趣？</p>
+  <p>請留下您聯絡方式，將會有產品服務團隊與您聯繫</p>
+`;
+---
+
+<footer
+  data-aos="fade-up"
+  class:list={[
+    'bg-gradient-to-b from-cyan-300 to-purple-400',
+    'py-10 md:py-16 xl:py-30',
+  ]}
+>
+  <BlockTitle subtitle={subtitle} />
+  <div class="-mt-4 flex xl:-mt-9">
+    <a href="/" class="mx-auto">
+      <button
+        type="button"
+        class="rounded-full bg-white px-8 py-2 font-bold text-[#555555] hover:bg-cyan-300 hover:text-dark/80 xl:text-2xl"
+      >
+        聯絡我們
+      </button>
+    </a>
+  </div>
+</footer>

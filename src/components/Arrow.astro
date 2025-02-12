@@ -1,0 +1,27 @@
+---
+type Props = {
+  href: string;
+  className?: string;
+  ariaLabel?: string;
+};
+
+const { href = '/', className, ariaLabel = '' } = Astro.props;
+---
+
+<a href={href} aria-label={ariaLabel} class="mx-auto block">
+  <svg
+    width="80"
+    height="80"
+    viewBox="0 0 80 80"
+    class={`text-white hover:text-cyan-300 ${className}`}
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <g clip-path="url(#clip0_2365_278)">
+      <path
+        d="M40 13.3333C54.7 13.3333 66.6666 25.3 66.6666 40C66.6666 54.7 54.7 66.6666 40 66.6666C25.3 66.6666 13.3333 54.7 13.3333 40C13.3333 25.3 25.3 13.3333 40 13.3333ZM40 6.66663C21.6 6.66663 6.66663 21.6 6.66663 40C6.66663 58.4 21.6 73.3333 40 73.3333C58.4 73.3333 73.3333 58.4 73.3333 40C73.3333 21.6 58.4 6.66663 40 6.66663ZM43.3333 40V26.6666H36.6666V40H26.6666L40 53.3333L53.3333 40H43.3333Z"
+        class="fill-current"
+      >
+      </path>
+    </g>
+  </svg>
+</a>

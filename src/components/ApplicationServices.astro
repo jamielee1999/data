@@ -1,0 +1,75 @@
+---
+import imgIcon1 from '@/assets/card-icon-1.svg';
+import imgIcon2 from '@/assets/card-icon-2.svg';
+import imgIcon3 from '@/assets/card-icon-3.svg';
+import ApplicationCard from '@/components/ApplicationCard.astro';
+import BlockTitle from '@/components/ui/BlockTitle.astro';
+import { BLOCK_IDS } from '@/const';
+
+const subtitle = (
+`<p>Webb 結合多源數據，<br class="md:hidden" />深入描繪顧客輪廓，<br>
+  以多維剖析，建構完整零售商品文本字詞庫，創造 Webb 三大應用服務</p>`
+);
+
+const cardList = [
+  {
+    order: '01',
+    title: '跨平台廣吿定向',
+    description: '多通路零售數據適用於多樣的數位媒體平台',
+    iconUrl: imgIcon1,
+  },
+  {
+    order: '02',
+    title: '客製化多通路零售數據',
+    description: '從 6 大維度切入，精細分群購物者，客製化撈取不同人群分眾行銷',
+    iconUrl: imgIcon2,
+  },
+  {
+    order: '03',
+    title: `多通路零售數據<br class="hidden xl:block" >商品分析探索報告`,
+    description: `
+    <ul class="text-gray list-disc list-inside pl-4">
+      <li>探索顧客輪廓及潛在需求</li>
+      <li>商品 / 競品零售洞察</li>
+      <li>客製化產業 / 商品零售分析報告</li>
+      </ul>`,
+    iconUrl: imgIcon3,
+  },
+];
+---
+
+<div
+  data-aos="fade-up"
+  id={BLOCK_IDS.WEBB_SERVICE}
+  class="px-8 py-10 md:px-0 md:py-16 xl:py-30"
+>
+  <BlockTitle
+    title="Webb 三大應用服務"
+    subtitle={subtitle}
+  />
+  <div class="grid-cols-12 gap-8 md:grid">
+    <div
+      class="md:col-span-8 md:col-start-3 lg:col-span-10 lg:col-start-2 2xl:col-span-8 2xl:col-start-3"
+    >
+      <ol class="grid-cols-12 gap-x-12 space-y-6 lg:grid lg:space-y-0">
+        {
+          cardList.map((card, index) => (
+            <li
+              class="col-span-4"
+              data-aos="fade-up"
+              data-aos-delay={index * 200}
+              data-aos-duration="500"
+            >
+              <ApplicationCard
+                order={card.order}
+                title={card.title}
+                description={card.description}
+                icon={card.iconUrl}
+              />
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </div>
+</div>

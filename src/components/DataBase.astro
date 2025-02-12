@@ -1,0 +1,60 @@
+---
+import DataBaseCount from '@/components/DataBaseCount.astro';
+import BlockTitle from '@/components/ui/BlockTitle.astro';
+import { BLOCK_IDS } from '@/const';
+
+const subtitle = `
+  <p>匯聚業界 13 家消費行為 APP</p>
+  <p>以 AI 技術產出多項品牌商品分析類別</p>
+`;
+
+const CountList = [
+  {
+    count: 16,
+    title: '產業',
+  },
+  {
+    count: 54,
+    title: '品類',
+  },
+  {
+    count: 110,
+    title: '主要通路',
+  },
+  {
+    count: 25000,
+    title: '品牌',
+  },
+];
+---
+
+<div
+  data-aos="fade-up"
+  id={BLOCK_IDS.INDUSTRY_DATA}
+  class:list={[
+    'bg-gradient-to-b from-cyan-300 to-purple-400',
+    'py-10 md:py-16 xl:py-30',
+  ]}
+>
+  <div data-aos="fade-up" data-aos-offset="200" data-aos-delay="200">
+    <BlockTitle title="業界最多面向產業數據資料庫" subtitle={subtitle} />
+  </div>
+  <div class="grid-cols-12 gap-8 xl:grid">
+    <div class="xl:col-span-8 xl:col-start-3">
+      <ul
+        class="flex flex-wrap space-y-8 md:flex-nowrap md:gap-4 md:space-y-0 xl:gap-16"
+      >
+        {
+          CountList.map((item) => (
+            <li
+              data-aos="fade-up"
+              class="w-full grow text-center text-white md:w-fit"
+            >
+              <DataBaseCount count={item.count} title={item.title} />
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</div>

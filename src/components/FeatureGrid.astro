@@ -1,0 +1,102 @@
+---
+import Arrow from '@/components/Arrow.astro';
+import BlockTitle from '@/components/ui/BlockTitle.astro';
+import { BLOCK_IDS } from '@/const';
+
+const features = [
+  {
+    id: 'retail-data',
+    title: '市場最多源',
+    subtitle: '零售消費數據',
+  },
+  {
+    id: 'retail-gpt',
+    title: 'RetailGPT 先進',
+    subtitle: 'AI 大數據技術',
+  },
+  {
+    id: 'industry-data',
+    title: '業界最多面向',
+    subtitle: '產業數據資料庫',
+  },
+  {
+    id: 'webb-service',
+    title: 'Webb',
+    subtitle: '三大應用服務',
+  },
+];
+---
+
+<div
+  data-aos="fade-up"
+  class="pt-20 md:pt-20 xl:pt-24"
+  id={BLOCK_IDS.FEATURE_GRID}
+>
+  <BlockTitle
+    title=`市場唯一且領先的<br class="md:hidden">多通路零售數據智能平台`
+  />
+
+  {/* Feature Grid */}
+  <div class:list={['grid-cols-12 gap-8 md:grid']}>
+    <div class="md:col-span-10 md:col-start-2 xl:col-span-8 xl:col-start-3">
+      <ol class="grid grid-cols-2 gap-y-2 overflow-hidden md:gap-y-5 xl:-mx-8">
+        {
+          features.map((feature, index) => (
+            <li
+              data-aos={`fade-${index % 2 === 0 ? 'right' : 'left'}`}
+              data-aos-delay={index * 400}
+              class:list={[
+                'relative col-span-1 flex items-center gap-x-2 md:gap-x-4 lg:h-[200px]',
+                'py-3 md:py-8',
+              ]}
+            >
+              <p
+                class:list={[
+                  'font-fugaz text-lg font-bold leading-none md:text-5xl lg:text-20 2xl:text-[110px]',
+                  {
+                    'pl-6 md:pl-13 xl:pl-18': index % 2 === 0,
+                    'pl-8 md:pl-16 xl:pl-28': index % 2 === 1,
+                  },
+                ]}
+              >
+                {index + 1}
+              </p>
+              <p class="font-medium tracking-[-0.02em] md:text-2xl md:font-bold lg:text-3xl 2xl:text-4xl">
+                {feature.title}
+                <span class="flex items-end pr-1.5">
+                  <span class="text-nowrap">{feature.subtitle}</span>
+                  <Arrow
+                    href={`/#${feature.id}`}
+                    ariaLabel={`scroll to ${feature.title}`}
+                    className={`
+                        ml-1.5 size-6
+                        rotate-[-120deg] transition-all duration-300 hover:-translate-y-0.5
+                        hover:translate-x-1 md:ml-2
+                        md:size-8 
+                        lg:ml-4 lg:size-11 xl:size-14
+                      `}
+                  />
+                </span>
+              </p>
+              <div
+                class:list={[
+                  'absolute top-0 -z-10 w-full h-full',
+                  {
+                    'left-0': index % 2 === 0,
+                    'rotate-180 ': index % 2 === 1,
+                  },
+                ]}
+              >
+                <div
+                  class:list={[
+                    'w-[116%] h-full bg-gradient-to-r from-purple-400 to-cyan-200/40 trapezoid',
+                  ]}
+                />
+              </div>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </div>
+</div>

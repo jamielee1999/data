@@ -1,0 +1,66 @@
+---
+import DataConnection from '@/components/animations/DataConnection.astro';
+import FallingCubes from '@/components/animations/FallingCubes';
+import ProductCorpus from '@/components/animations/ProductCorpus';
+import BlockTitle from '@/components/ui/BlockTitle.astro';
+import { BLOCK_IDS } from '@/const';
+
+const title = `
+  <p>RetailGPT 先進 AI 大數據技術</p>
+  <p>助品牌發掘潛在商機</p>
+`;
+
+const subtitleList = [
+  {
+    id: 'analysis',
+    content: `
+    <p>結合 NLP、RAG 和 LLM 技術，<br class="md:hidden"/>在各種不同情境，</p>
+    <p>自動分析龐大且繁雜的零售數據，<br class="md:hidden"/>以六大維度深入解析商品關聯網絡</p>
+    `,
+    animation: 'FallingCubes',
+  },
+  {
+    id: 'cross-channel',
+    content: `<p>單一發票商品資訊複雜<br class="md:hidden"/> RetailGPT 具有跨通路商品辨識能力</p>
+    <p>能將單一商品於各通路不同的名稱<br class="md:hidden"/>精確清洗整合</p>`,
+    animation: 'DataConnection',
+  },
+  {
+    id: 'text-corpus',
+    content: `
+    <p>並以品類、產業、品牌、通路、功能、<br class="xl:hidden"/>規格六大維度剖析，<br class="hidden md:inline-block"/>
+    建構出<br class="md:hidden"/>特定產業最完整的「零售商品文本字詞庫」</p>
+    `,
+    animation: 'ProductCorpus',
+  },
+];
+---
+
+<div
+  data-aos="fade-up"
+  id={BLOCK_IDS.RETAIL_GPT}
+  class="py-10 md:py-16 xl:py-30"
+>
+  <BlockTitle title={title} />
+  <div class="space-y-10 md:space-y-20 xl:space-y-30">
+    {
+      subtitleList.map((item) => {
+        return (
+          <div id={item.id} data-aos="fade-up">
+            <div class="grid-cols-12 gap-x-8 px-3 md:grid md:px-0">
+              <div class="col-span-8 col-start-3">
+                <BlockTitle subtitle={item.content} />
+              </div>
+            </div>
+
+            {item.animation === 'FallingCubes' && <FallingCubes client:load />}
+            {item.animation === 'DataConnection' && <DataConnection />}
+            {item.animation === 'ProductCorpus' && (
+              <ProductCorpus client:load />
+            )}
+          </div>
+        );
+      })
+    }
+  </div>
+</div>

@@ -1,0 +1,79 @@
+---
+import headerVideo from '@/assets/header-video.mov?url';
+---
+
+<div class="relative overflow-hidden">
+  <div
+    class:list={[
+      'container h-dvh space-y-10 px-10 md:h-fit md:space-y-20 md:px-0 md:py-20 xl:h-dvh',
+      'flex flex-col justify-end gap-y-30 md:block xl:flex md:h-fit',
+    ]}
+  >
+    <div class="grid-cols-12 gap-x-8 sm:grid">
+      <div
+        class="col-span-10 space-y-6 md:col-start-2 xl:col-span-8 xl:col-start-3"
+      >
+        <div
+          class="text-center text-3xl font-bold tracking-[0.02em] drop-shadow-[0_2px_20px_0_rgba(0,0,0,0.7)] lg:text-6xl 2xl:text-7xl"
+        >
+          <h1 class="flex flex-wrap justify-center">
+            零售數據智能平台
+            <div class="inline-flex">
+              <span class="ml-2 inline-block bg-purple px-2">Webb</span>
+              <span class="inline-block bg-purple pr-1">韋伯</span>
+            </div>
+          </h1>
+          <p>賦予品牌前所未有的 <br class="md:hidden" /> 數據視力</p>
+        </div>
+        <div
+          class="text-center text-lg tracking-[2px] drop-shadow-[0_0px_8px_0_rgba(0,0,0,0.6)] md:text-xl lg:text-2xl xl:text-3xl"
+        >
+          在當今複雜的零售環境，品牌往往受限於片面的銷售數據，<br
+            class="hidden md:block 2xl:hidden"
+                                    />Webb
+          <span class="hidden 2xl:inline"><br /></span>
+          <span>穿透各種銷售通路阻隔，成為品牌打通</span>
+          <h2 class="inline-block bg-cyan px-1 font-bold">數據行銷</h2>
+          <span class="text-nowrap">最後一哩最佳解方</span>
+        </div>
+      </div>
+    </div>
+    <div class="flex py-3">
+      <a
+        href="/#feature-grid"
+        aria-label="scroll to feature grid"
+        class="mx-auto block animate-bounce transition-all hover:translate-y-1"
+      >
+        <svg
+          width="80"
+          height="80"
+          viewBox="0 0 80 80"
+          class="size-20 text-white hover:text-cyan-300"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g clip-path="url(#clip0_2365_278)">
+            <path
+              d="M40 13.3333C54.7 13.3333 66.6666 25.3 66.6666 40C66.6666 54.7 54.7 66.6666 40 66.6666C25.3 66.6666 13.3333 54.7 13.3333 40C13.3333 25.3 25.3 13.3333 40 13.3333ZM40 6.66663C21.6 6.66663 6.66663 21.6 6.66663 40C6.66663 58.4 21.6 73.3333 40 73.3333C58.4 73.3333 73.3333 58.4 73.3333 40C73.3333 21.6 58.4 6.66663 40 6.66663ZM43.3333 40V26.6666H36.6666V40H26.6666L40 53.3333L53.3333 40H43.3333Z"
+              class="fill-current"
+            >
+            </path>
+          </g>
+        </svg>
+      </a>
+    </div>
+  </div>
+
+  <div class="absolute inset-0 flex justify-center">
+    <div
+      class="absolute inset-0 -z-10 bg-gradient-to-b from-black/30 to-black/80"
+    >
+    </div>
+    <video
+      src={headerVideo}
+      class="-z-20 size-full translate-y-[-15%] object-cover md:scale-[1.2] 2xl:scale-125"
+      autoplay
+      loop
+      muted
+    ></video>
+  </div>
+</div>

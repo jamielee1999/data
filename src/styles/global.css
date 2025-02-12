@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: sans-serif;
+    color: white;
+    background-color: #000D25;
+  }
+}
+
+@layer components{
+  .container {
+    @apply max-w-full 2xl:max-w-[1960px] px-4 flex flex-col;
+  }
+}
+
+@layer utilities {
+  .trapezoid {
+    clip-path: polygon(0 0, 70% 0, 100% 100%, 0 100%);
+  }
+}

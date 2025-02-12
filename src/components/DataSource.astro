@@ -1,0 +1,68 @@
+---
+import imgOrbit from '@/assets/orbit-lines.svg';
+import imgOrbitStars from '@/assets/orbit-stars.svg';
+import OrbitFloatingText from '@/components/animations/OrbitFloatingText.astro';
+import BlockTitle from '@/components/ui/BlockTitle.astro';
+import { BLOCK_IDS } from '@/const';
+import { Image } from 'astro:assets';
+
+const subtitle = `
+  <p>涵蓋線上線下購物、百貨等全通路數據源</p>
+  <p>360度掌握消費者行為足跡</p>
+`;
+---
+
+<div
+  data-aos="fade-up"
+  data-aos-offset="200"
+  data-aos-delay="300"
+  id={BLOCK_IDS.RETAIL_DATA}
+  class="overflow-x-hidden bg-gradient-to-b from-dark to-blue-900 py-2 pt-10 md:pt-16 xl:pt-30"
+>
+  <BlockTitle title="市場最多源零售消費數據" subtitle={subtitle} />
+  {/* Orbit Visualization */}
+  <div class="flex overflow-hidden md:pt-8 xl:px-8 xl:pt-10">
+    <div class="relative mx-auto text-sm md:font-bold">
+      <div class:list={['relative flex max-w-full justify-center']}>
+        <Image
+          src={imgOrbit}
+          alt="Orbit Visualization"
+          class:list={[
+            'object-cover mix-blend-soft-light brightness-200',
+            'h-auto w-[370px] md:w-[750px] xl:w-[1150px] aspect-square',
+            'animate-spin-slow',
+          ]}
+        />
+
+        <Image
+          src={imgOrbitStars}
+          alt="Orbit Spots"
+          class:list={[
+            'object-cover mix-blend-color-dodge',
+            'absolute inset-0',
+            'h-auto w-[370px] md:w-[750px] xl:w-[1150px] max-w-full',
+            'animate-spin-slow',
+            'animate-pulse',
+          ]}
+        />
+      </div>
+
+      <OrbitFloatingText />
+    </div>
+  </div>
+</div>
+
+<style>
+  @keyframes spin-slow {
+    from {
+      transform: rotate(360deg);
+    }
+    to {
+      transform: rotate(0deg);
+    }
+  }
+
+  .animate-spin-slow {
+    animation: spin-slow 30s linear infinite;
+  }
+</style>
